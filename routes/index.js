@@ -2,10 +2,8 @@ const passport = require('passport');
 
 const checkAuth = (req, res, done) => {
     if(!req.user) {
-        console.log('meo co');
         res.redirect('google');
     } else {
-        console.log('co');
         done();
     }
 }

@@ -4,12 +4,10 @@ const keys = require('../config/key');
 const User = require('../models/User');
 
 passport.serializeUser((user, done) => {
-    console.log('serializeUser: ', user);
     done(null, user.id);
 })
 
 passport.deserializeUser((id, done) => {
-    console.log('deserializeUser: ', id);
     User.findById(id).then((user) => {
         done(null, user);
     });
@@ -25,7 +23,6 @@ passport.use(
         User.findOne({googleId: profile.id})
         .then(existUser => {
             if(existUser) {
-                console.log('exist user: ', existUser.id);
                 done(null, existUser);
             } else {
                 new User({
@@ -34,7 +31,6 @@ passport.use(
                     userName: profile.displayName
                 }).save()
                 .then((user) => {
-                    console.log('upload success', user);
                     done(null, newUser);
                 })
             }
