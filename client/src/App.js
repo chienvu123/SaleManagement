@@ -1,21 +1,44 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "./actions";
+import { Landing, Header, Test } from './component';
+import "./App.css";
+
+const Dashboard = () => <h2>Dashboard</h2>;
+const SurveyNew = () => <h2>SurveyNew</h2>;
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
   render() {
+    console.log(this.props.user);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container" id="App">
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Route
+              exact
+              path="/"
+              render={(props) => 
+                <Landing src={this.props.user.photo}/>
+              }
+            />
+            <Test />
+            <Route exact path="/survey" component={Dashboard} />
+            <Route path="/survey/new" component={SurveyNew} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
 }
-
-export default App;
+const mapStateToProps = state => ({
+  user: state.user
+});
+export default connect(
+  mapStateToProps,
+  actions
+)(App);

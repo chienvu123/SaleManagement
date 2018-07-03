@@ -1,0 +1,13 @@
+import { FETCH_USER } from "../actions/type";
+
+export default function(state = [], action) {
+  switch (action.type) {
+    case FETCH_USER:
+      return {
+          ...state,
+          ...action.user
+      }
+    default:
+      return state;
+  }
+}
