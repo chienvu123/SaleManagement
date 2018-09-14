@@ -1,0 +1,53 @@
+
+
+.container-image {
+    position: relative;
+    height: 200px;
+}
+
+.image0 {
+    position: absolute;
+    height: 90px;
+    width: 90px;
+    filter: hue-rotate(60deg);
+    transform: rotate(1000deg);
+}
+
+.image1 {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    transform: rotate(40deg);
+}
+
+.image2 {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    filter: hue-rotate(120deg);
+    transform: rotate(180deg);
+}
+
+.image3 {
+    position: absolute;
+    height: 180px;
+    width: 180px;
+    filter: hue-rotate(180deg);
+}
+
+#image-loading {
+    animation: Loading 1s;
+    animation-delay: 4s;
+}
+
+@keyframes Loading {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+  

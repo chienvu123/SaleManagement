@@ -1,5 +1,5 @@
-import Landing from './Landing';
-import Header from './Header';
-import Test from './Container'
 
-export { Landing, Header, Test }
+import Header from './Header';
+import Loading from './Loading';
+
+export { Header, Loading }

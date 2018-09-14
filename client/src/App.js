@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./actions";
-import { Landing, Header, Test } from './component';
+import { Header } from './component';
+import { Login } from './container';
 import "./App.css";
 
 const Dashboard = () => <h2>Dashboard</h2>;
@@ -18,15 +19,13 @@ class App extends Component {
       <div className="container" id="App">
         <BrowserRouter>
           <div>
-            <Header />
             <Route
               exact
               path="/"
               render={(props) => 
-                <Landing src={this.props.user.photo}/>
+                <Login />
               }
             />
-            <Test />
             <Route exact path="/survey" component={Dashboard} />
             <Route path="/survey/new" component={SurveyNew} />
           </div>
