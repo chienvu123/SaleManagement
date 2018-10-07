@@ -1,4 +1,5 @@
 const passport = require('passport');
+const User = require('../models/User');
 
 const checkAuth = (req, res, done) => {
   console.log('user', req.user);
@@ -25,9 +26,11 @@ module.exports = (app) => {
     passport.authenticate('google'),
     async (req, res) => {
       // res.send(req.user);
-      const json = await res.json(req.user);
-      console.log('a');
-      return json;
+      res.statusCode = 200;
+      res.setHeader('content-type', 'application/json');
+      // const json = await res.json(req.user);
+
+      res.redirect('/test');
     },
   );
   // get = path + func + func done!
@@ -42,5 +45,11 @@ module.exports = (app) => {
 
   app.get('/auth/login', checkAuth, (req, res) => {
     res.send(req.user);
+  });
+
+  app.get('/test', (req, res) => {
+    User.Test('fdsfds', (msg) => {
+      res.send(msg);
+    });
   });
 };

@@ -8,6 +8,8 @@ const user = new Schema({
   email: String,
 });
 
-const Users = mongoose.model('user', user);
+const Users = (module.exports = mongoose.model('user', user));
 
-module.exports = Users;
+Users.Test = (userId, callback = (result) => {}) => {
+  callback('haha');
+};
