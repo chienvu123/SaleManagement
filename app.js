@@ -1,21 +1,26 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const keys = require("./config/key");
-const passport = require("passport");
-const RouteApp = require("./routes");
-const cookieSession = require("cookie-session");
-require("./services");
+const express = require('express');
+const bodyParser = require('body-parser');
+const keys = require('./config/key');
+const passport = require('passport');
+const RouteApp = require('./routes');
+const cookieSession = require('cookie-session');
+require('./services');
 
-const mongoose = require("mongoose");
-mongoose.connect(keys.mongoURI);
+const mongoose = require('mongoose');
+mongoose.connect(
+  keys.mongoURI,
+  {
+    useNewUrlParser: true,
+  },
+);
 
 const app = express();
 app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 30,
-    keys: [keys.cookieKey]
-  })
+    keys: [keys.cookieKey],
+  }),
 );
 
 app.use(passport.initialize());
