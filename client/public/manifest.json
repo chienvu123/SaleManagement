@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "React Demo App",
+  "short_name": "Admin",
+  "name": "PetIT Admin",
   "icons": [
     {
       "src": "favicon.ico",

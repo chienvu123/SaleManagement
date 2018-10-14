@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './actions';
 import { Header } from './component';
-import { Login, Store } from './container';
+import { Login } from './container';
 import './App.css';
 
 const Dashboard = () => <h2>Dashboard</h2>;

@@ -1,5 +1,6 @@
 .form {
     width: 74%;
+    height: 100%;
     overflow: hidden;
     align-items: center;
     display: flex;
@@ -28,10 +29,11 @@
   flex: 1;
   justify-content: center;
   margin-top: 60px;
+  height: 100%;
 }
 
 header {
-    height: 50px;
+    height: 40px;
     font-size: 30px;
     margin: 25px 0;
 }
@@ -108,14 +110,14 @@ header {
   from {
     opacity: 0;
     background: rgba(0, 0, 0, 0.1);
-    height: 100px;
+    height: 30%;
     width: 30%;
     margin-top: 0;
   }
   to {
     opacity: 1;
     background: rgba(0, 0, 0, 0.4);
-    height: 350px;
+    height: 80%;
     width: 50%;
     margin-top: 100px;
   }
