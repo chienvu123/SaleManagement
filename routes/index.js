@@ -11,9 +11,9 @@ const checkAuth = (req, res, done) => {
 };
 
 module.exports = (app) => {
-  app.get('/', (req, res) => {
-    res.send('Khong co gi');
-  });
+  // app.get('/', (req, res) => {
+  //   res.send('Khong co gi');
+  // });
   app.get(
     '/auth/google',
     passport.authenticate('google', {
@@ -30,7 +30,7 @@ module.exports = (app) => {
       res.setHeader('content-type', 'application/json');
       // const json = await res.json(req.user);
 
-      res.redirect('/test');
+      res.redirect('/survey');
     },
   );
   // get = path + func + func done!
