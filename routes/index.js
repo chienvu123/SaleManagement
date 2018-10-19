@@ -1,6 +1,7 @@
 const passport = require('passport');
 const User = require('../models/User');
-
+const Post = require('../models/Post');
+const Articles = require('../models/Articles');
 const checkAuth = (req, res, done) => {
   console.log('user', req.user);
   if (!req.user) {
@@ -37,7 +38,36 @@ module.exports = (app) => {
   app.get('/api/profile', (req, res) => {
     res.send(req.user);
   });
-
+  app.get('/insert/:username/:password', (req, res) => {
+    // User.
+  });
+  app.get('/post/find', (req, res) => {
+    // Post.
+    Post.Test((err, data) => {
+      if (err) {
+        throw err;
+      }
+      res.json(data);
+    });
+  });
+  app.get('/articles/find', (req, res) => {
+    // Post.
+    Articles.Test((err, data) => {
+      if (err) {
+        throw err;
+      }
+      res.json(data);
+    });
+  });
+  app.get('/book/find', (req, res) => {
+    // Post.
+    User.Test((err, data) => {
+      if (err) {
+        throw err;
+      }
+      res.json(data);
+    });
+  });
   app.get('/auth/logout', (req, res) => {
     req.logout();
     res.redirect('login');
